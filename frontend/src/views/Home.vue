@@ -76,6 +76,7 @@ export default {
           function(response){
             if(response.data.success){
               console.log('Successfully Inserted'); 
+              console.log(response); 
               //this.$refs.myId.innerText = 'Successfully Inserted';
               alert('Successfully Inserted');
             }

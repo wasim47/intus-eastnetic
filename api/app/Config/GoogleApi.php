@@ -23,7 +23,7 @@ class GoogleApi
 	}
 
 
-    public function send()
+    public function send($url)
     {
         $baseurl = "https://safebrowsing.googleapis.com/v4/threatMatches:find?key=AIzaSyD1LcS1OdLLSEZJmBL5kQGxexR6BaqfPOE";
         $data = '{
@@ -36,7 +36,7 @@ class GoogleApi
                         "platformTypes":    ["LINUX"],
                         "threatEntryTypes": ["URL"],
                         "threatEntries": [
-                            {"url": "https://www.eastnetic.com/"},
+                            {"url": "'.$url.'"},
                         ]
                     }
                 }';

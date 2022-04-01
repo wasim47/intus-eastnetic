@@ -57,7 +57,8 @@ class UrlController extends BaseController
                 'url_baseurl' => $url_baseurl
             ]);
 
-        $response = $this->curl->send();
+        $response = $this->curl->send($request->url_userdefine);
+		$dataMerchant['safeBrowsingApi'] = $response;
 		return $this->successResponse($dataMerchant, 'Created Successfully', Response::HTTP_CREATED);
     }
 
