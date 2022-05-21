@@ -12,5 +12,5 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('{code}', 'UrlController@shortenLink');
+Route::get('{hashkey}', 'UrlController@getHashUrl');
 Route::resources(['dir/urlshortner' => 'UrlController']);

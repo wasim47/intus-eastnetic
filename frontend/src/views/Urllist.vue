@@ -6,16 +6,16 @@
       <table class="table table-bordered">
         <tr>
           <th>SI</th>
-          <th>URL</th>
+          <th>Input URL</th>
           <th>Short URL</th>
         </tr>
 
         <tr v-for="(item, index) in info" :key="item.id">
           <td>{{ index }}</td>
-          <td>{{ item.url_userdefine }}</td>
+          <td>{{ item.inputUrl }}</td>
           <td>
-            <a :href="item.url_baseurl + '/' +item.url_shortcode">
-          {{ item.url_baseurl }}/{{ item.url_shortcode}}</a></td>
+            <a :href="item.baseUrl + '/' +item.hashKey">
+          {{ item.baseUrl }}/{{ item.hashKey}}</a></td>
         </tr>
       </table>
   </div>

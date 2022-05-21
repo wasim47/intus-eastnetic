@@ -21,9 +21,9 @@
             <form @submit.prevent="urlShortner">
             <div class="row">
               
-                <div class="col-sm-2"><label for="inputurl">Enter Valid URL</label> </div>
+                <div class="col-sm-2"><label for="inputUrl">Enter Valid URL</label> </div>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" v-model="form.url_userdefine" id="inputurl" placeholder="Ex: https://www.eastnetic.com/">
+                  <input type="text" class="form-control" v-model="form.inputUrl" id="inputUrl" placeholder="Ex: https://www.eastnetic.com/">
                 </div>
                 <div class="col-sm-2"><button type="submit" class="btn btn-success">Submit</button></div>
               
@@ -51,7 +51,7 @@ export default {
     return{
       error:[],
       form:{
-        url_userdefine: "",
+        inputUrl: "",
       }
     }
   },
