@@ -13,11 +13,11 @@ class GoogleApi
         $data = '{
                     "client": {
                         "clientId":      "eastnetic",
-                        "clientVersion": "1.5.2"
+                        "clientVersion": "1.0"
                     },
                     "threatInfo": {
                         "threatTypes":      ["MALWARE", "SOCIAL_ENGINEERING"],
-                        "platformTypes":    ["LINUX"],
+                        "platformTypes":    ["ANY_PLATFORM"],
                         "threatEntryTypes": ["URL"],
                         "threatEntries": [
                             {"url": "'.$url.'"},

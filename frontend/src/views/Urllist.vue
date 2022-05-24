@@ -24,35 +24,32 @@
 
 
 <script>
-import axios from "axios";    //////////////// Axios Using for data send and receive with server
+  import axios from "axios";    //////////////// Axios Using for data send and receive with server
 
-export default {
-  name: 'Urllist',  
-  data(){
-    return{
-      error: '',
-      info: [],
-      loading: true,
-      errored: false,
-    }
-  },
-  mounted() {
-          this.getUrls();
-      },
-  methods:{   
-  getUrls() {
-        axios.get(`http://127.0.0.1:8000/`).then((res) => {     //////////////// Fatch all URL data form server
-            if(res.data.success){
-              this.info = res.data.data;
-              console.log(this.info);
-            }
-            else{
-              this.error = 'Data Not Found';
-              console.log(this.error);
-            }
-            
-        });
+  export default {
+    name: 'Urllist',  
+    data(){
+      return{
+        error: '',
+        info: []
+      }
     },
-  },
-};
+    mounted() {
+            this.getUrls();
+        },
+    methods:{   
+    getUrls() {
+          axios.get(`http://127.0.0.1:8000/`).then((response) => {     //////////////// Fatch all URL data form server
+              if(response.data.success){
+                this.info = response.data.data;
+                console.log(this.info);
+              }
+              else{
+                this.error = 'URL Data Not Found';
+                console.log(this.error);
+              }            
+          });
+      },
+    },
+  };
 </script>

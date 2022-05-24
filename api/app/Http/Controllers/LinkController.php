@@ -50,7 +50,7 @@ class LinkController extends BaseController
             $result = $this->linkService->create($data);
 
 			if ($result['status'] == true) {
-            	return $this->successResponse('', $result['message'], Response::HTTP_CREATED);
+            	return $this->successResponse($result['data'], $result['message'], Response::HTTP_CREATED);
 			}
 			else{
 				return $this->errorRessponse($result['message'], '', Response::HTTP_CREATED);

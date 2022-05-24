@@ -51,7 +51,7 @@ class LinkService
 			if($checkInsertedData){
 				$response = $this->curl->send($inputs['inputUrl']);
 				$insertedData['safeBrowsingApi'] = $response;
-				$data = array('status' => true, 'message' => 'Successfully Added', 'data' => $checkInsertedData);
+				$data = array('status' => true, 'message' => 'Successfully Added', 'data' => $insertedData);
 				return $data;
 			}
 			else{
