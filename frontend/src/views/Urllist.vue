@@ -12,7 +12,7 @@
 
         <tr v-for="(item, index) in info" :key="item.id">
           <td>{{ index }}</td>
-          <td>{{ item.inputUrl }}</td>
+          <td align="left">{{ item.inputUrl }}</td>
           <td>
             <a :href="item.baseUrl + '/' +item.hashKey">
           {{ item.baseUrl }}/{{ item.hashKey}}</a></td>
@@ -24,7 +24,7 @@
 
 
 <script>
-import axios from "axios";
+import axios from "axios";    //////////////// Axios Using for data send and receive with server
 
 export default {
   name: 'Urllist',  
@@ -41,7 +41,7 @@ export default {
       },
   methods:{   
   getUrls() {
-        axios.get(`http://127.0.0.1:8000/dir/urlshortner`).then((res) => {
+        axios.get(`http://127.0.0.1:8000/`).then((res) => {     //////////////// Fatch all URL data form server
             if(res.data.success){
               this.info = res.data.data;
               console.log(this.info);

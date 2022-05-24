@@ -31,10 +31,6 @@
             </div>
             </form>        
           </div>
-
-
-
-
         </div>
       </div>
     </body>
@@ -58,10 +54,8 @@ export default {
 
   methods:{  
     urlShortner: function(e){
-      //console.log(this.form);
-
       let axiosConfig = {
-        headers: {
+        headers: {                ///////////////////////////// Header using for Cros controll
             'Content-Type': 'application/json;charset=UTF-8',
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Headers":"X-CSRF-TOKEN",
@@ -69,26 +63,24 @@ export default {
             'Access-Control-Allow-Credentials':true
         }
       };
-      axios.post("http://127.0.0.1:8000/dir/urlshortner", 
+      axios.post("http://127.0.0.1:8000/url/store",    //////////////// Posting user define url to server
         this.form, 
         axiosConfig)
         .then(
           function(response){
             if(response.data.success){
-              console.log('Successfully Inserted'); 
-              console.log(response); 
-              //this.$refs.myId.innerText = 'Successfully Inserted';
-              alert('Successfully Inserted');
+              console.log(response.data); 
+              alert(response.data.message);
             }
             else{              
               console.log(response.data);    
-             // this.$refs.myId.innerText = response.data;
               alert(response.data);
             }
             
           })
           .catch(function(error){            
             console.log(error);
+            alert('Something wrong! Plese Check our API request');
           });
           e.target.reset();
     },

@@ -7,22 +7,6 @@ use Illuminate\Support\Facades\Http;
 
 class GoogleApi
 {
-
-    /**
-     * @param $method
-     * @param $url
-     * @param $data
-     * @param string[] $headers
-     * @return \stdClass
-     */
-
-	private $base_url;
-
-	public function _construct($base_url){
-		$this->base_url = $base_url;
-	}
-
-
     public function send($url)
     {
         $baseurl = "https://safebrowsing.googleapis.com/v4/threatMatches:find?key=AIzaSyD1LcS1OdLLSEZJmBL5kQGxexR6BaqfPOE";
