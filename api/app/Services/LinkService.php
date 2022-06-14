@@ -69,7 +69,6 @@ class LinkService
      {
         try {
 			////////////// Gel Hash URL from Link Table using repository////////
-
 			$checkUrlExist = $this->linkRepository->getLinkByHashKey($hashkey);
             if($checkUrlExist!=""){
 				$data = array('status' => true, 'message' => 'Valid URL', 'data' => $checkUrlExist->inputUrl);
@@ -86,7 +85,7 @@ class LinkService
     }
 
 
-	//////////////// Hash Url Making /////////////////////
+	//////////////// 6 digit Hash Url Making /////////////////////
 	private function generateShortUrl(){
         $hashKey = "";
         $alphabetNumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

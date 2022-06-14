@@ -20,7 +20,8 @@ class LinkController extends BaseController
     public function index(): JsonResponse
     {
         try {
-			$getAllUrls = $this->linkService->index();	/////////////// Get all data from index method in URL service
+            /////////////// Get all data from index method in URL service//////////
+			$getAllUrls = $this->linkService->index();
 
             if($getAllUrls['status']){
                 return $this->successResponse($getAllUrls['data'], $getAllUrls['message'], Response::HTTP_CREATED);
@@ -38,6 +39,7 @@ class LinkController extends BaseController
     public function store(Request $request): JsonResponse
     {
 		try {
+            /////////////// Unique URL Validation /////////////
 			$validator = Validator::make($request->all(), [
 				  'inputUrl' => 'required|unique:links|max:255',
 			  ]);
@@ -46,6 +48,7 @@ class LinkController extends BaseController
 				return response()->json('URL already exist, Please try another one');
 			  }
 
+           /////////////// Send Request data to Link Service /////////////
             $data = $request->all();
             $result = $this->linkService->create($data);
 
@@ -64,9 +67,11 @@ class LinkController extends BaseController
     public function getHashUrl($hashkey)
     {
 		 try {
-			$result = $this->linkService->getHashUrl($hashkey);		 //////////////////////Gel Hash URL data from getHashUrl method in URL service
+             ///////////////Gel Hash URL data from getHashUrl method in URL service/////////////
+			$result = $this->linkService->getHashUrl($hashkey);
 
 			if ($result['status'] == true) {
+                 /////////////// Redirect actual url to short url/////////////
             	return redirect($result['data']);
 			}
 			else{
