@@ -37,4 +37,4 @@ jobs:
         server: ftp.nextgenitltd.com
         username: ${{ secrets.USERNAME }}        
         password: ${{ secrets.PASSWORD }}
-        server-dir: /nextgenitltd.com/cicd
+        server-dir: /home3/nextgen/nextgenitltd.com/cicd
